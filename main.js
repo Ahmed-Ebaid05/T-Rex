@@ -43,34 +43,44 @@ setInterval(() => {
     if (!isGameOver) poss += 0.2;
 }, 15000);
 
-document.addEventListener("keydown", (e) => MainFun(e));
-document.addEventListener("touchstart", (e) => MainFun(e));
-document.addEventListener("click", (e) => MainFun(e));
-    function MainFun (e) {
-        if (e.type === "keydown" && e.code !== "Space") {
-        if ( !isGameOver) {
-            e.preventDefault();
-            score.style.cssText = "display: block;";
-            isBegain = true;
-            if (!t_rex.classList.contains("active")) {
-                t_rex.classList.add("active");
-                t_rex.classList.add("jump");
-                setTimeout ( () => t_rex.classList.remove("jump"), 800)
-                if ( !horizonDiv.classList.contains("full-horizon"))
-                    horizonDiv.classList.add("full-hoirzon");
-                    moveHorizon();
-                    cloud.classList.add("cl");
-                    setTimeout(spawnCactus, 5000 );
-                    setTimeout(spawnBird, 20000 );
-                } else {
-                    t_rex.classList.add("jump");
-                    setTimeout ( () => t_rex.classList.remove("jump"), 800)
-                }
-            } else {
-                this.location.reload();
+window.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("keydown", (e) => MainFun(e));
+    // Works for both mouse clicks & touch taps
+    document.addEventListener("pointerdown", (e) => MainFun(e), { passive: false });
+});
+
+function MainFun(e) {
+    // Only react to Space when using keyboard
+    if (e.type === "keydown" && e.code !== "Space") return;
+
+    if (!isGameOver) {
+        if (e.cancelable) e.preventDefault();
+
+        score.style.cssText = "display: block;";
+        isBegain = true;
+
+        if (!t_rex.classList.contains("active")) {
+            t_rex.classList.add("active");
+            t_rex.classList.add("jump");
+            setTimeout(() => t_rex.classList.remove("jump"), 800);
+
+            if (!horizonDiv.classList.contains("full-hoirzon")) {
+                horizonDiv.classList.add("full-hoirzon");
             }
+
+            moveHorizon();
+            cloud.classList.add("cl");
+            setTimeout(spawnCactus, 5000);
+            setTimeout(spawnBird, 20000);
+        } else {
+            t_rex.classList.add("jump");
+            setTimeout(() => t_rex.classList.remove("jump"), 800);
         }
+    } else {
+        location.reload();
     }
+}
+
 
 
 function spawnCactus() {
@@ -152,4 +162,5 @@ function EndGame() {
             t_rex.style.cssText = "background-image: url(\"Image/Y-Rex\\(6\\).png\");"
 
 }
+
 
