@@ -44,7 +44,8 @@ setInterval(() => {
 }, 15000);
 
 document.addEventListener("keydown", (e) => MainFun(e));
-
+document.addEventListener("touchstart", (e) => MainFun(e));
+document.addEventListener("click", (e) => MainFun(e));
     function MainFun (e) {
         if (e.code === "Space") {
         if ( !isGameOver) {
@@ -70,8 +71,6 @@ document.addEventListener("keydown", (e) => MainFun(e));
             }
         }
     }
-    
-    game.addEventListener("touchstart", (e) => MainFun(e));
 
 
 function spawnCactus() {
@@ -151,4 +150,5 @@ function EndGame() {
             GameOver.style.cssText = "display: block;";
             t_rex.classList.remove("active");
             t_rex.style.cssText = "background-image: url(\"Image/Y-Rex\\(6\\).png\");"
+
 }
