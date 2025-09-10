@@ -90,9 +90,9 @@ body {
 }
 
 @keyframes jump {
-    0%   { transform: scale(0.5, 0.5) translateY(70px); }
+    0%   { transform: scale(0.5, 0.5) translateY(100px); }
     50%  { transform: scale(0.5, 0.5) translateY(-200px); }
-    100% { transform: scale(0.5, 0.5) translateY(70px); }
+    100% { transform: scale(0.5, 0.5) translateY(100px); }
 }
 
 /* End T-Rex */
@@ -208,4 +208,5 @@ body {
     :root {
         --full-length: 350px
     }
+
 }
