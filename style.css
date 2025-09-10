@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --full-length: 1000px;
+}
+
+body {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.main-game {
+    position: absolute;
+    left: 50%;
+    width: var(--full-length);
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-game .score {
+    position: relative;
+    width: 100%;
+    height: 150%;
+    display: none;
+}
+
+.main-game p {
+    position: absolute;
+    right: 0;
+    top: -100px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.main-game .HI {
+    margin-right: 50px;
+}
+
+/* Start Horizon */
+
+.main-game .horizon {
+    width: 100px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.main-game .full-hoirzon {
+    animation: full-horizon-ani 0.8s forwards;
+}
+
+@keyframes full-horizon-ani {
+    to {
+        width: var(--full-length);
+    }
+}
+
+/* End Horizon */
+
+/* Start T-Rex */
+
+.main-game .t-rex {
+    background-image: url(Image/Chromium_T-Rex-offline-trex\ -\ Copy.png);
+    width: 87px;
+    height: 94px;
+    position: relative;
+    transform: scale(0.5, 0.5) translateY(70px);
+    z-index: 5;
+}
+
+.main-game .active {
+    animation: T-Rex-animation 0.2s infinite alternate;
+}
+
+.main-game .jump {
+    animation: jump 0.8s ease-in-out;
+}
+
+@keyframes T-Rex-animation {
+    from {
+        background-image: url("Image/T-rex(3).png");
+    }
+    
+    to {
+        background-image: url("Image/T-rex(4).png");
+    }
+}
+
+@keyframes jump {
+    0%   { transform: scale(0.5, 0.5) translateY(70px); }
+    50%  { transform: scale(0.5, 0.5) translateY(-200px); }
+    100% { transform: scale(0.5, 0.5) translateY(70px); }
+}
+
+/* End T-Rex */
+
+/* Start Cactues */
+
+.main-game .cactues {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 25px));
+    width: var(--full-length);
+    overflow: hidden;
+    z-index: -5;
+    height: 50px;
+}
+
+.main-game .cactues .cactues-container {
+    position: relative;
+    width: 110%;
+    height: 50px;
+} 
+
+.main-game .cactues img {
+    height: 50px;
+    transform:  (0.6, 0.6);
+    position: absolute;
+    right: -80px;
+}
+
+/* End Cactues */
+
+/* Start Cloud  */
+
+.cloud {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(var(--full-length) + 50px);
+}
+
+.cloud-container {
+    position: relative;
+    width: calc(var(--full-length) + 50px);
+    height: 250px;
+    overflow: hidden;
+}
+
+.cl {
+    right: -90px;
+    animation: cloud-ani 1.5s linear infinite;
+    z-index: -5;
+}
+
+.cl1 {
+    position: absolute;
+    top: 0;
+    right: -90px;
+}
+
+@keyframes cloud-ani {
+    to {
+        right: calc(var(--full-length) + 50px);
+    }
+}
+
+/* End Cloud */
+
+/* Start Bird  */
+
+.bird {
+    position: absolute;
+    right: -200px;
+    background-repeat: none;
+    animation: bird-ani 0.2s infinite alternate;
+}
+
+@keyframes bird-ani {
+    from {
+        background-image: url(Image/78171_29\ -\ Copy.png);
+        width: 40px;
+        height: 30px;
+    }
+
+    to {
+        background-image: url(Image/78171_29\ -\ Copy\ \(2\).png);
+        width: 40px;
+        height: 20px;
+    }
+}
+
+/* End Bird */
+
+/* Start Game Over  */
+
+.game-over {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.game-over img {
+    transform: scale(0.5, 0.5);
+}
+
+/* End Game Over  */
+
+@media (max-width: 991px) {
+    :root {
+        --full-length: 350px
+    }
+}
