@@ -8,7 +8,7 @@ let bird = document.querySelector(".bird");
 let cactuesArr = Array.from(cactues);
 let GameOver = document.querySelector(".game-over");
 let position = 0;
-let poss = 4;
+let poss = 8;
 let isGameOver = false;
 let isBegain = false; 
 let counter = 0;
@@ -154,6 +154,7 @@ function EndGame() {
             t_rex.style.cssText = "background-image: url(\"Image/Y-Rex\\(6\\).png\");"
 
 }
+
 
 
 
