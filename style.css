@@ -76,7 +76,7 @@ body {
 }
 
 .main-game .jump {
-    animation: jump 0.8s ease-in-out;
+    animation: jump 1s ease-in-out;
 }
 
 @keyframes T-Rex-animation {
@@ -210,3 +210,4 @@ body {
     }
 
 }
+
