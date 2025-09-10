@@ -55,7 +55,7 @@ document.addEventListener("touchstart", (e) => MainFun(e));
             if (!t_rex.classList.contains("active")) {
                 t_rex.classList.add("active");
                 t_rex.classList.add("jump");
-                setTimeout ( () => t_rex.classList.remove("jump"), 800)
+                setTimeout ( () => t_rex.classList.remove("jump"), 1000)
                 if ( !horizonDiv.classList.contains("full-horizon"))
                     horizonDiv.classList.add("full-hoirzon");
                     moveHorizon();
@@ -64,7 +64,7 @@ document.addEventListener("touchstart", (e) => MainFun(e));
                     setTimeout(spawnBird, 20000 );
                 } else {
                     t_rex.classList.add("jump");
-                    setTimeout ( () => t_rex.classList.remove("jump"), 800)
+                    setTimeout ( () => t_rex.classList.remove("jump"), 1000)
                 }
             } else {
                 this.location.reload();
@@ -154,6 +154,7 @@ function EndGame() {
             t_rex.style.cssText = "background-image: url(\"Image/Y-Rex\\(6\\).png\");"
 
 }
+
 
 
 
