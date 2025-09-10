@@ -47,7 +47,7 @@ document.addEventListener("keydown", (e) => MainFun(e));
 document.addEventListener("touchstart", (e) => MainFun(e));
 document.addEventListener("click", (e) => MainFun(e));
     function MainFun (e) {
-        if (e.code === "Space") {
+        if (e.type === "keydown" && e.code !== "Space") {
         if ( !isGameOver) {
             e.preventDefault();
             score.style.cssText = "display: block;";
@@ -152,3 +152,4 @@ function EndGame() {
             t_rex.style.cssText = "background-image: url(\"Image/Y-Rex\\(6\\).png\");"
 
 }
+
